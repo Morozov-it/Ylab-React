@@ -1,0 +1,76 @@
+/* Модальное окно */
+.modal{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(53,53,53,0.4);
+    font-family: sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;/*чтобы модально окно не перекрывало основную страницу*/
+    transition: 0.5s;
+}
+.modal-content{
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    max-width: 960px;
+    height: 600px;
+    margin: 10% auto;
+    overflow: auto; /*работает только при точной высоте блока*/
+}
+.modal.active{
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+.modal-head{
+    border-radius: 10px;
+    height: 80px;
+    padding: 0px 20px;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.modal-total{
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 40px;
+}
+.modal-total b{
+    margin-left: 30px;
+}
+
+.list-item{
+    border-bottom: 1px dashed #ccc;
+}
+
+.list-item:first-child{
+    border-top: 1px dashed #ccc;
+}
+
+.item{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.item__title{
+    width: 100%;
+    padding: 20px 10px;
+}
+.item__cost{
+    width: 20%;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+.item__number{
+    padding: 20px 10px 20px 20px;
+}
+.item__count{
+    width: 10%;
+    padding: 20px 10px 20px 20px;
+}
