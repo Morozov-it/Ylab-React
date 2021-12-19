@@ -1,0 +1,12 @@
+/* Пункт списка */
+.item__body {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px;
+}
+.item__info {
+    margin-bottom: 20px;
+}
+h2 {
+    margin-top: 0;
+}

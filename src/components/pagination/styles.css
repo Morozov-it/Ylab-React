@@ -1,0 +1,23 @@
+/*Список*/
+.body{
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+}
+.item{
+    cursor: pointer;
+    margin-left: 1px;
+    line-height: 18px;
+    width: 20px;
+    text-align: center;
+}
+.item:hover{
+    background: rgb(185, 184, 184);
+}
+.selected{
+    background: black;
+    color: white;
+}
+.selected:hover{
+    background: black;
+}

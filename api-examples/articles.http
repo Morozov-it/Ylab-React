@@ -1,4 +1,9 @@
 ###
+# Документация
+
+GET http://example.front.ylab.io/api/v1/docs/
+
+###
 # Список товаров
 
 GET http://example.front.ylab.io/api/v1/articles
