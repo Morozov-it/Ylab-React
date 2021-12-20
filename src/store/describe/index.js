@@ -11,10 +11,6 @@ class DescribeStore extends StoreModule {
     };
   }
 
-  /**
-   * Получение описания товара по коду
-   * @param id {*}
-   */
   async loadItem(id) {
     //получение описания
     const response = await fetch(`/api/v1/articles/${id}?fields=*,maidIn(title,code),category(title)`);
@@ -24,7 +20,7 @@ class DescribeStore extends StoreModule {
       item: json.result
     });
     console.log(this.getState())
-  }
+  };
 }
 
 export default DescribeStore;

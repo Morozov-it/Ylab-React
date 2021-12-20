@@ -11,8 +11,10 @@ function ItemDescribe() {
   // //получение параметра id из запроса
   const { id } = useParams();
 
+  //нужен для вызова действий
   const store = useStore();
 
+  //подписывается компонента на изменение state только определенных данных в store (модулей)
   const select = useSelector(state => ({
     item: state.describe.item,
     amount: state.basket.amount,
@@ -22,14 +24,12 @@ function ItemDescribe() {
   // Загрузка данных товара при первом рендере
   useEffect(async () => {
     await store.describe.loadItem(id);
-    console.log(id)
   }, []);
 
   const callbacks = {
     addToBasket: useCallback((_id) => store.basket.add(_id), [store]),
     openModal: useCallback(() => store.modals.open('basket'), [store]),
   }
-
   return (
     <LayoutDescribe head={<h1>{select.item}</h1>} >
       <BasketSimple onOpen={callbacks.openModal} amount={select.amount} sum={select.sum} />
