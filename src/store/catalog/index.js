@@ -10,35 +10,24 @@ class CatalogStore extends StoreModule {
       items: [],
       currentPage: 1,
       limit: 10,
-      countItems: 0,
+      countItems: null,
     };
   }
 
   /**
    * Загрузка списка товаров
    */
-  async load(){
-    const response = await fetch(`/api/v1/articles?limit=${this.getState().limit}&skip=0&fields=items(*),count`);
+
+  async load(currentPage) {
+    let skip = (currentPage * 10) - 10;
+    const response = await fetch(`/api/v1/articles?limit=${this.getState().limit}&skip=${skip}&fields=items(*),count`);
     const json = await response.json();
     this.setState({
-      ...this.getState(),
       items: json.result.items,
       countItems: json.result.count,
-      currentPage: 1
-    });
-  }
-
-  //обновление страниц списка товаров
-  async setCurrentPage(currentPage) {
-    let skip = (currentPage * 10) - 10;
-    const response = await fetch(`/api/v1/articles?limit=${this.getState().limit}&skip=${skip}`);
-    const json = await response.json();
-    this.setState({
-      ...this.getState(),
-      items: json.result.items,
+      limit: this.getState().limit,
       currentPage
     });
-    console.log(this.getState().items);
   }
 }
 

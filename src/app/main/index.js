@@ -25,13 +25,13 @@ function Main() {
 
   // Загрузка тестовых данных при первом рендере
   useEffect(async () => {
-    await store.catalog.load();
+    await store.catalog.load(1);
   }, []);
 
   const callbacks = {
     addToBasket: useCallback((_id) => store.basket.add(_id), [store]),
     openModal: useCallback(() => store.modals.open('basket'), [store]),
-    onPageChanged: useCallback((p) => store.catalog.setCurrentPage(p), [store]),
+    onPageChanged: useCallback((p) => store.catalog.load(p), [store]),
   };
 
   const renders = {
