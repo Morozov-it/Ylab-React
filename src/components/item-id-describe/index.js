@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 import './styles.css';
 import numberFormat from "../../utils/number-format";
 
-function ItemIdDescribe({item, onAdd}) {
+function ItemIdDescribe({ item, onAdd }) {
   return (
     <div className='item__body'>
       <div className='item__info'>{item.description}</div>
