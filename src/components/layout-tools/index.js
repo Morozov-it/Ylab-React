@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import './styles.css';
 
 function LayoutTools({children}){
-
+  //компонент выравнивает в строку все вложенные элементы
   // CSS классы по БЭМ
   const className = cn('LayoutTools');
 

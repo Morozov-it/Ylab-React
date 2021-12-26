@@ -3,3 +3,75 @@
 
 GET http://example.front.ylab.io/api/v1/categories?limit=*&fields=_id,parent,title
 
+{
+//   "result": {
+//     "items": [
+//       {
+//         "_id": "61c0a9cb8f67e811d55abb2d",
+//         "parent": null,
+//         "title": "Электроника"
+//       },
+//       {
+//         "_id": "61c0a9cb8f67e811d55abb2e",
+//         "parent": {
+//           "_id": "61c0a9cb8f67e811d55abb2d"
+//         },
+//         "title": "Телефоны"
+//       },
+//       {
+//         "_id": "61c0a9cb8f67e811d55abb2f",
+//         "parent": {
+//           "_id": "61c0a9cb8f67e811d55abb2d"
+//         },
+//         "title": "Ноутбуки"
+//       },
+//       {
+//         "_id": "61c0a9cb8f67e811d55abb30",
+//         "parent": {
+//           "_id": "61c0a9cb8f67e811d55abb2d"
+//         },
+//         "title": "Телевизоры"
+//       },
+//       {
+//         "_id": "61c0a9cb8f67e811d55abb31",
+//         "parent": null,
+//         "title": "Книги"
+//       },
+//       {
+//         "_id": "61c0a9cb8f67e811d55abb32",
+//         "parent": {
+//           "_id": "61c0a9cb8f67e811d55abb31"
+//         },
+//         "title": "Учебники"
+//       },
+//       {
+//         "_id": "61c0a9cb8f67e811d55abb33",
+//         "parent": {
+//           "_id": "61c0a9cb8f67e811d55abb31"
+//         },
+//         "title": "Художественная"
+//       },
+//       {
+//         "_id": "61c0a9cb8f67e811d55abb34",
+//         "parent": {
+//           "_id": "61c0a9cb8f67e811d55abb31"
+//         },
+//         "title": "Комиксы"
+//       },
+//       {
+//         "_id": "61c0a9cb8f67e811d55abb35",
+//         "parent": {
+//           "_id": "61c0a9cb8f67e811d55abb2e"
+//         },
+//         "title": "Смартфоны"
+//       },
+//       {
+//         "_id": "61c0a9cb8f67e811d55abb36",
+//         "parent": {
+//           "_id": "61c0a9cb8f67e811d55abb35"
+//         },
+//         "title": "Аксессуары"
+//       }
+//     ]
+//   }
+// }

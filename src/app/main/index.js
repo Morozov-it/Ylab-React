@@ -7,11 +7,11 @@ import CatalogList from "../../containers/catalog-list";
 import useInit from "../../utils/use-init";
 
 function Main() {
-
   const store = useStore();
 
   // Загрузка тестовых данных при первом рендере
   useInit(async () => {
+    await store.category.loadCategories();
     await store.catalog.initParams();
   }, [], {backForward: true});
 

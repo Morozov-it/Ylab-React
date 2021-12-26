@@ -16,7 +16,7 @@ class ArticleStore extends StoreModule {
    * Загрузка списка товаров
    */
   async load(id){
-
+    //это сброс (обновление) текущего состояния
     this.updateState({
       waiting: true,
       data: {}
@@ -25,6 +25,7 @@ class ArticleStore extends StoreModule {
     try {
       const response = await fetch(`/api/v1/articles/${id}?fields=*,maidIn(title,code),category(title)`);
       const json = await response.json();
+      //это исключение ошибок, инструкции после throw не будут выполнены, а ход функции будет передан в catch
       if (json.error) throw new Error(json.error);
 
       this.updateState({
@@ -38,6 +39,7 @@ class ArticleStore extends StoreModule {
         waiting: false
       });
     }
+    
   }
 }
 

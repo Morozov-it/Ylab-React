@@ -1,0 +1,19 @@
+/* Пункт списка */
+.ArticleFormCard {
+  padding: 20px 35px;
+}
+.ArticleFormCard div{
+  margin-bottom: 20px;
+}
+.ArticleFormCard-Description textarea{
+  width: 100%;
+  height: 100px;
+}
+.ArticleFormCard-Error {
+  border: 1px solid red;
+  color:red;
+}
+input {
+  width: 300px;
+}
+

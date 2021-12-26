@@ -85,6 +85,16 @@ class Store {
   get catalog(){
     return this.get('catalog');
   }
+
+  /**
+   * @return {CategoryStore}
+   */
+  get category(){
+    return this.get('category');
+  }
+  get forms(){
+    return this.get('forms');
+  }
 }
 
 export default Store;
