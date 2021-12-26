@@ -9,6 +9,7 @@ class FormsStore extends StoreModule {
     return {
       _id: "",
       title: "",
+      titleEdit: "",
       description: "",
       price: undefined,
       maidIn: '',
@@ -26,6 +27,7 @@ class FormsStore extends StoreModule {
     this.updateState({
       _id: "",
       title: "",
+      titleEdit: "",
       description: "",
       price: undefined,
       maidIn: '',
@@ -42,6 +44,7 @@ class FormsStore extends StoreModule {
       this.updateState({
         _id: json.result._id,
         title: json.result.title,
+        titleEdit: json.result.title,
         description: json.result.description,
         price: json.result.price,
         maidIn: json.result.maidIn._id,
@@ -54,6 +57,7 @@ class FormsStore extends StoreModule {
       this.updateState({
         _id: "",
         title: "",
+        titleEdit: "",
         description: "",
         price: undefined,
         maidIn: '',
@@ -68,7 +72,7 @@ class FormsStore extends StoreModule {
    * Метод для контролируемых полей input
    */
   changeItem(prop, value) {
-    if (prop === 'title') this.updateState({ title: value});
+    if (prop === 'title') this.updateState({ titleEdit: value});
     if (prop === 'description') this.updateState({ description: value });
     if (prop === 'price') this.updateState({ price: value });
     if (prop === 'maidIn') this.updateState({ maidIn: value });
@@ -83,7 +87,7 @@ class FormsStore extends StoreModule {
   async sendItem(id) {
     const data = {
       _id: this.getState()["_id"],
-      title: this.getState().title,
+      title: this.getState().titleEdit,
       description: this.getState().description,
       price: this.getState().price,
       maidIn: {

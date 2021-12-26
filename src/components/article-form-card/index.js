@@ -3,19 +3,19 @@ import propTypes from 'prop-types';
 import {cn} from '@bem-react/classname'
 import './styles.css';
 
-function ArticleFormCard({article, countries, categories, onItem, onSend}) {
+function ArticleFormCard({article, countries, categories, onInput, onSend}) {
   // CSS классы по БЭМ
   const className = cn('ArticleFormCard');
 
   const inputHadler = (e) => {
-    onItem(e.target.name, e.target.value);
+    onInput(e.target.name, e.target.value);
   }
 
   return (
     <form className={className()}>
       <div className={className('Test')}>
         <label>Название</label><br />
-        <input name={'title'} value={article.title} onChange={inputHadler}/>
+        <input name={'title'} value={article.titleEdit} onChange={inputHadler}/>
       </div>
       <div className={className('Description')}>
         <label>Описание</label><br />
@@ -23,16 +23,24 @@ function ArticleFormCard({article, countries, categories, onItem, onSend}) {
       </div>
       <div className={className('Country')}>
         <label>Страна производитель</label><br />
-        <select name={'maidIn'} onChange={inputHadler}>
+        <select name={'maidIn'}
+          value={article.maidIn}
+          onChange={inputHadler}>
           {countries.map(item => (
-          <option key={item._key} value={item._id}>{item.title}</option>))}
+            <option key={item._key}
+              value={item._id}>{item.title}
+            </option>))}
         </select>
       </div>
       <div className={className('Category')}>
         <label>Категория</label><br />
-        <select name={'category'} onChange={inputHadler}>
+        <select name={'category'}
+          value={article.category}
+          onChange={inputHadler}>
           {categories.map(item => (
-          <option key={item._id} value={item._id}>{item.title}</option>))}
+            <option key={item._id}
+              value={item._id}>{item.title}
+            </option>))}
         </select>
       </div>
       <div className={className('Edition')}>
@@ -51,7 +59,7 @@ function ArticleFormCard({article, countries, categories, onItem, onSend}) {
       <button
         onClick={(e) => {
           e.preventDefault();
-          onSend(article['_id']);}
+          onSend(article._id);}
         }>Сохранить</button>
     </form>
   )

@@ -16,14 +16,12 @@ function ArticleForm() {
 
   // Начальная загрузка
   useInit(async () => {
-    await store.get('article').load(params.id);
     await store.forms.loadItem(params.id);
     await store.category.loadCategories();
     await store.category.loadCountries();
   }, [params.id]);
 
   const select = useSelector(state => ({
-    title: state.article.data.title,
     article: state.forms,
     waiting: state.forms.waiting,
     categories: state.category.items,
@@ -33,18 +31,18 @@ function ArticleForm() {
   const callbacks = {
     addToBasket: useCallback((_id) => store.basket.add(_id), [store]),
     onSend: useCallback((id) => store.forms.sendItem(id), [store]),
-    onItem: useCallback((prop, value) => store.forms.changeItem(prop, value), [store]),
+    onInput: useCallback((prop, value) => store.forms.changeItem(prop, value), [store]),
   }
 
   return (
-    <Layout head={<h1>{select.title}</h1>}>
+    <Layout head={<h1>{select.article.title}</h1>}>
       <Header/>
       <Spinner active={select.waiting}>
         <ArticleFormCard
           article={select.article}
           countries={select.countries}
           categories={select.categories}
-          onItem={callbacks.onItem}
+          onInput={callbacks.onInput}
           onSend={callbacks.onSend}
           onAdd={callbacks.addToBasket} />
       </Spinner>
