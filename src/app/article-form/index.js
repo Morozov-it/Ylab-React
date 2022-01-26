@@ -29,7 +29,6 @@ function ArticleForm() {
   }));
 
   const callbacks = {
-    addToBasket: useCallback((_id) => store.basket.add(_id), [store]),
     onSend: useCallback((id) => store.forms.sendItem(id), [store]),
     onInput: useCallback((prop, value) => store.forms.changeItem(prop, value), [store]),
   }
@@ -43,8 +42,7 @@ function ArticleForm() {
           countries={select.countries}
           categories={select.categories}
           onInput={callbacks.onInput}
-          onSend={callbacks.onSend}
-          onAdd={callbacks.addToBasket} />
+          onSend={callbacks.onSend} />
       </Spinner>
     </Layout>
   );
